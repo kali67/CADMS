@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team2.controller.GraphPageController">
+    <LineChart fx:id="lChart" layoutX="164.0" layoutY="50.0" prefHeight="700.0" prefWidth="800.0" title="Carbon Footprint Saved Over a Year">
+        <xAxis>
+            <CategoryAxis label="Date" side="BOTTOM"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Carbon FootPrint Saved (kg)" side="LEFT" />
+        </yAxis>
+    </LineChart>
+    <ComboBox fx:id="graphTimeFrame" layoutX="1012.0" layoutY="70.0" prefWidth="150.0">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Yearly" />
+                <String fx:value="Monthly" />
+                <String fx:value="Weekly" />
+            </FXCollections>
+        </items>
+        <value><String fx:value="Yearly" /></value>
+    </ComboBox>
+    <Button layoutX="1092.0" layoutY="106.0" mnemonicParsing="false" onAction="#bClicked" text="Confirm" />
+    <Label layoutX="985.0" layoutY="260.0" prefHeight="60.0" prefWidth="190.0" text="The graph displays the carbon footprint saved over the selected period of time." wrapText="true" />
+    <Label layoutX="1012.0" layoutY="50.0" text="Select a Time Frame" />
+    <Label layoutX="985.0" layoutY="326.0" prefHeight="70.0" prefWidth="190.0" text="This value is what a person could save from travelling by a bike instead of taking the average car." wrapText="true" />
+    <Label layoutX="985.0" layoutY="400.0" prefHeight="70.0" prefWidth="190.0" text="The calculations for this graph were derived from the distance travelled for the preloaded bike route data." wrapText="true" />
+</Pane>

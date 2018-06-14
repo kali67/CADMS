@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team2.controller.AddDataPageController">
+   <children>
+       <Label layoutX="540.0" layoutY="23.0" text="Data Management">
+           <font>
+               <Font size="36.0" />
+           </font>
+       </Label>
+       <Pane layoutX="7.0" layoutY="251.0" prefHeight="364.0" prefWidth="754.0">
+          <children>
+              <Button fx:id="importBtn" alignment="CENTER" layoutX="272.0" layoutY="321.0" mnemonicParsing="false" onAction="#importFile" prefHeight="40.0" prefWidth="334.0" text="Import File" />
+              <Button fx:id="addDataBtn" layoutX="631.0" layoutY="320.0" mnemonicParsing="false" onAction="#manualAdd" prefHeight="40.0" prefWidth="124.0" text="Add Data" />
+              <ComboBox fx:id="importDataCombo" layoutX="406.0" layoutY="-6.0" onMouseClicked="#getComboValues" prefHeight="41.0" prefWidth="221.0" promptText="Please select a table ">
+                  <value>
+                      <String fx:value="Routes" />
+                  </value>
+              </ComboBox>
+              <Label layoutX="200.0" layoutY="7.0" text="Select list to input data to:" />
+              <Button layoutX="654.0" layoutY="-6.0" onAction="#setBtns" text="Confirm" prefHeight="41.0"/>
+          </children>
+       </Pane>
+       <Pane fx:id="manualInsertRoutePane" layoutX="80.0" layoutY="330" prefHeight="220" prefWidth="680">
+          <children>
+              <Label layoutX="10.0" layoutY="26.0" text="Trip Duration (sec)" />
+              <Label layoutX="10.0" layoutY="76.0" text="Start Station Address" />
+              <Label layoutX="10.0" layoutY="126.0" text="End Station Address" />
+              <Label layoutX="10.0" layoutY="176.0" text="User Type" />
+              <TextField fx:id="tripDuration" layoutX="150.0" layoutY="20.0" prefHeight="25.0" prefWidth="520.0" />
+              <TextField fx:id="startName" layoutX="151.0" layoutY="70.0" prefHeight="25.0" prefWidth="520.0" />
+              <TextField fx:id="endName" layoutX="149.0" layoutY="120.0" prefHeight="25.0" prefWidth="520.0" />
+              <ComboBox fx:id="userType" layoutX="149.0" layoutY="171.0" prefHeight="25.0" prefWidth="520.0">
+                  <items>
+                      <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Subscriber" />
+                          <String fx:value="Customer" />
+                      </FXCollections>
+                  </items>
+                  <value>
+                      <String fx:value="Subscriber" />
+                  </value>
+              </ComboBox>
+          </children>
+       </Pane>
+       <Pane fx:id="manualInsertRetailerPane" layoutX="80.0" layoutY="330" prefHeight="220" prefWidth="680" visible="false">
+          <children>
+              <Label layoutX="10.0" layoutY="26.0" text="Shop Name" />
+              <Label layoutX="10.0" layoutY="76.0" text="Shop Type" />
+              <Label layoutX="10.0" layoutY="126.0" text="Address" />
+              <Label layoutX="10.0" layoutY="176.0" text="City" />
+              <TextField fx:id="shopName" layoutX="140" layoutY="20" prefHeight="25.0" prefWidth="530.0" />
+              <TextField fx:id="shopType" layoutX="140" layoutY="70.0" prefHeight="25.0" prefWidth="530.0" />
+              <TextField fx:id="addressRetailer" layoutX="140" layoutY="120.0" prefHeight="25.0" prefWidth="530.0" />
+              <TextField fx:id="cityRetailer" layoutX="140" layoutY="170.0" prefHeight="25.0" prefWidth="530.0" />
+          </children>
+       </Pane>
+       <Pane fx:id="manualInsertWifiPane" layoutX="80.0" layoutY="330" prefHeight="220" prefWidth="680" visible="false">
+          <children>
+              <Label layoutX="10.0" layoutY="26.0" text="Provider" />
+              <Label layoutX="10.0" layoutY="76.0" text="Type" />
+              <Label layoutX="10.0" layoutY="126.0" text="Borough" />
+              <Label layoutX="10.0" layoutY="176.0" text="Address" />
+              <TextField fx:id="provider" layoutX="140.0" layoutY="20.0" prefHeight="25.0" prefWidth="530.0" />
+              <TextField fx:id="type" layoutX="140.0" layoutY="70.0" prefHeight="25.0" prefWidth="530.0" />
+              <TextField fx:id="borough" layoutX="140.0" layoutY="120.0" prefHeight="25.0" prefWidth="530.0" />
+              <TextField fx:id="addressWifi" layoutX="140.0" layoutY="170.0" prefHeight="25.0" prefWidth="530.0" />
+          </children>
+       </Pane>
+       <Label fx:id="reqFieldsFlag" layoutX="661.0" layoutY="622.0" text="Invalid Field Inputs" visible="false" />
+       <Label layoutX="907.0" layoutY="162.0" text="Create New List">
+           <font>
+               <Font size="27.0" />
+           </font>
+       </Label>
+       <Label layoutX="316.0" layoutY="161.0" text="Manual Insert Or Import FIle">
+           <font>
+               <Font size="27.0" />
+           </font>
+       </Label>
+       <TextField fx:id="tableName" layoutX="894.0" layoutY="400.0" prefHeight="25.0" prefWidth="258.0" />
+       <Label layoutX="803.0" layoutY="402.0" text="List Name" />
+       <ComboBox fx:id="dataTypeCombo" layoutX="895.0" layoutY="447.0" prefHeight="25.0" prefWidth="258.0">
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Wifi" />
+                   <String fx:value="Retailers" />
+                   <String fx:value="Routes" />
+               </FXCollections>
+           </items>
+           <value>
+               <String fx:value="Select" />
+           </value>
+       </ComboBox>
+       <Label layoutX="809.0" layoutY="450.0" text="List Type" />
+       <Button layoutX="899.0" layoutY="571.0" mnemonicParsing="false" onAction="#createNewTable" prefHeight="40.0" prefWidth="251.0" text="Create" />
+       <Label fx:id="createTableErrorMsg" layoutX="892.0" layoutY="622.0" text="Ensure the required fields and selections are made!" visible="false" />
+      <Label layoutX="894.0" layoutY="224.0" prefHeight="125.0" prefWidth="258.0" text="Data for bike routes, retailers, and wifi is stored in lists. You can create new lists to store these different data types in. locations can be stored in different lists" wrapText="true" />
+   </children>
+</AnchorPane>

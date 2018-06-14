@@ -1,0 +1,196 @@
+#searchButton {
+    -fx-background-image: url("/Icons/Search.png");
+    -fx-background-color: white;
+}
+
+#searchButton:hover {
+    -fx-background-image: url("/Icons/Search.png");
+    -fx-background-color: #e0e0e0;
+}
+
+#searchButton:armed {
+    -fx-background-image: url("/Icons/Search.png");
+    -fx-background-color: #c0c0c0;
+}
+
+#homeButton {
+    -fx-background-image: url("/Icons/Lines.png");
+    -fx-background-color: white;
+}
+
+#homeButton:hover {
+    -fx-background-image: url("/Icons/Lines.png");
+    -fx-background-color: #e0e0e0;
+}
+
+#homeButton:armed {
+    -fx-background-image: url("/Icons/Lines.png");
+    -fx-background-color: #c0c0c0;
+}
+
+
+#graphButton {
+    -fx-background-image: url("/Icons/Graph.png");
+    -fx-background-color: white;
+}
+
+#graphButton:hover {
+    -fx-background-image: url("/Icons/Graph.png");
+    -fx-background-color: #e0e0e0;
+}
+
+#graphButton:armed {
+    -fx-background-image: url("/Icons/Graph.png");
+    -fx-background-color: #c0c0c0;
+}
+
+#insertButton {
+    -fx-background-image: url("/Icons/Import.png");
+    -fx-background-color: white;
+}
+
+#insertButton:hover {
+    -fx-background-image: url("/Icons/Import.png");
+    -fx-background-color: #e0e0e0;
+}
+
+#insertButton:armed {
+    -fx-background-image: url("/Icons/Import.png");
+    -fx-background-color: #c0c0c0;
+}
+
+#settingsButton {
+    -fx-background-image: url("/Icons/Gear-1.png");
+    -fx-background-color: white;
+}
+
+#settingsButton:hover {
+    -fx-background-image: url("/Icons/Gear-1.png");
+    -fx-background-color: #e0e0e0;
+}
+
+#settingsButton:armed {
+    -fx-background-image: url("/Icons/Gear-1.png");
+    -fx-background-color: #c0c0c0;
+}
+
+#rulesButton {
+    -fx-background-image: url("/Icons/Rules.png");
+    -fx-background-color: white;
+}
+
+#rulesButton:hover {
+    -fx-background-image: url("/Icons/Rules.png");
+    -fx-background-color: #e0e0e0;
+}
+
+#rulesButton:armed {
+    -fx-background-image: url("/Icons/Rules.png");
+    -fx-background-color: #c0c0c0;
+}
+
+#helpButton {
+    -fx-background-color: white;
+}
+
+#helpButton:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+#helpButton:armed {
+    -fx-background-color: #c0c0c0;
+}
+
+#exitButton {
+    -fx-background-image: url("/Icons/Quit.png");
+    -fx-background-color: white;
+}
+
+#exitButton:hover {
+    -fx-background-image: url("/Icons/Quit.png");
+    -fx-background-color: #e0e0e0;
+}
+
+#exitButton:armed {
+    -fx-background-image: url("/Icons/Quit.png");
+    -fx-background-color: #c0c0c0;
+}
+
+#mainToolBar{
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+#mainPane{
+    -fx-background-color: white;
+}
+
+.button {
+    -fx-background-color: #99FF99;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80%;
+    -fx-background-position: center;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.button:hover {
+    -fx-background-color:#00e600;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80%;
+    -fx-background-position: center;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.button:armed{
+    -fx-background-color: lightpink;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80%;
+    -fx-background-position: center;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.combo-box:disabled {
+    -fx-opacity: 90%;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.toggle-button {
+    -fx-background-color: #99FF99;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.toggle-button:selected {
+    -fx-background-color: lightpink;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.toggle-button:hover {
+    -fx-background-color: #00e600;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.toggle-button:armed {
+    -fx-background-color: lightpink;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 200%;
+}
