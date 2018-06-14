@@ -1,0 +1,7 @@
+.chart-series-line {
+    -fx-stroke-width: 2px;
+}
+
+.chart {
+    -fx-legend-visible: false;
+}

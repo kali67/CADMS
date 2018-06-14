@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team2.controller.GUIMain" stylesheets="Stylesheets/MainGui.css">
+    <Pane fx:id="graphPane" prefHeight="800.0" prefWidth="1200.0" visible="false">
+        <fx:include source="graphPage.fxml" />
+    </Pane>
+    <Pane fx:id="settingsPane" prefHeight="800.0" prefWidth="1200.0" visible="false">
+        <fx:include source="settingsPage.fxml" />
+    </Pane>
+    <Pane fx:id="searchPane" prefHeight="800.0" prefWidth="1200.0" visible="false">
+        <fx:include source="searchPage.fxml" />
+    </Pane>
+    <Pane fx:id="mapPane" layoutX="80" prefHeight="800.0" prefWidth="1200.0">
+        <fx:include source="mapPage.fxml" />
+    </Pane>
+    <Pane fx:id="addDataPane" prefHeight="800.0" prefWidth="1200.0" visible="false">
+        <fx:include source="addDataPage.fxml" />
+    </Pane>
+    <ToolBar fx:id="mainToolBar" cache="true" cacheHint="SCALE" orientation="VERTICAL" prefHeight="800.0" prefWidth="80.0">
+        <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="62.0" prefWidth="68.0"/>
+        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonClicked" prefHeight="62.0" prefWidth="68.0"/>
+        <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#settingsButtonClicked" prefHeight="62.0" prefWidth="68.0"/>
+        <Button fx:id="graphButton" mnemonicParsing="false" onAction="#graphButtonClicked" prefHeight="62.0" prefWidth="68.0"/>
+        <Button fx:id="insertButton" mnemonicParsing="false" onAction="#insertDataButtonClicked" prefHeight="62.0" prefWidth="68.0"/>
+        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="62.0" prefWidth="68.0"/>
+    </ToolBar>
+</AnchorPane>

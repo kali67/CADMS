@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="Stylesheets/SearchStylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team2.controller.SearchPageController">
+    <Pane prefHeight="800.0" prefWidth="1022.0">
+        <Pane fx:id="retailerDetailPane" prefHeight="800.0" prefWidth="680.0" visible="false">
+            <children>
+                <Button layoutX="93.0" layoutY="720.0" mnemonicParsing="false" onAction="#retailFindClosestWifi" text="Find Closest Wifi" />
+                <Label layoutX="230.0" layoutY="46.0" text="Retailer Information">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+                <GridPane layoutX="22.0" layoutY="118.0" prefHeight="90.0" prefWidth="638.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="108.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="165.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="19.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="73.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="273.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="15.0" prefWidth="130.0" text="Name:">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label text="ID Number:" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="retailIdLabel" prefHeight="15.0" prefWidth="155.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label prefHeight="15.0" prefWidth="127.0" text="Category:" GridPane.columnIndex="3">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="retailNameTF" prefHeight="25.0" prefWidth="144.0" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="retailCat1CB" prefHeight="25.0" prefWidth="279.0" GridPane.columnIndex="4">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Casual Eating &amp; Takeout" />
+                                    <String fx:value="Community Resources" />
+                                    <String fx:value="Full Service Dining" />
+                                    <String fx:value="Nightlife" />
+                                    <String fx:value="Personal and Professional Services" />
+                                    <String fx:value="Shopping" />
+                                    <String fx:value="Visitor Services" />
+                                    <String fx:value="Other" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <Label prefHeight="15.0" prefWidth="141.0" text="Census Tract:" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="retailCTLabel" prefHeight="15.0" prefWidth="191.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="retailCat2Label" prefHeight="15.0" prefWidth="279.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Label layoutX="299.0" layoutY="257.0" text="Location">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <GridPane layoutX="25.0" layoutY="334.0" prefHeight="232.0" prefWidth="632.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="147.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="201.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="23.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="161.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Address:">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="183.0" text="Borough:" GridPane.columnIndex="3">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="105.0" text="City:" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="115.0" text="State:" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="140.0" text="ZIP Code:" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label text="Latitude:" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="164.0" text="Longitude:" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="121.0" text="BBL:" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="156.0" text="BIN:" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="160.0" text="Community Board:" GridPane.rowIndex="5">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="176.0" text="Council District:" GridPane.rowIndex="6">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="113.0" text="NTA:" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="retailLatLabel" prefHeight="15.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="retailLonLabel" prefHeight="15.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="retailComBoardLabel" prefHeight="15.0" prefWidth="248.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="retailComDisLabel" prefHeight="15.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="retailStateLabel" prefHeight="15.0" prefWidth="198.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <Label fx:id="retailBblLabel" prefHeight="15.0" prefWidth="185.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <Label fx:id="retailBinLabel" prefHeight="15.0" prefWidth="207.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <Label fx:id="retailNtaLabel" prefHeight="15.0" prefWidth="184.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <Label fx:id="retailZipLabel" prefHeight="15.0" prefWidth="244.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="retailAdr1TF" GridPane.columnIndex="1" />
+                        <TextField fx:id="retailAdr2TF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="retailBorTF" GridPane.columnIndex="4" />
+                        <TextField fx:id="retailCityTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Button layoutX="545.0" layoutY="720.0" mnemonicParsing="false" onAction="#backButtonPressed" text="Back" />
+                <Button layoutX="261.0" layoutY="720.0" mnemonicParsing="false" onAction="#editRetailRecord" text="Save" />
+            </children>
+        </Pane>
+        <Pane fx:id="filterPane" layoutX="120.0" layoutY="20.0" prefHeight="40.0" prefWidth="418.0">
+            <ToggleButton fx:id="routeToggle" layoutX="8" layoutY="5" mnemonicParsing="false" onMouseClicked="#routeOptionClicked" prefHeight="25.0" prefWidth="130.0" selected="true" text="Route" toggleGroup="$searchToggle">
+                <toggleGroup>
+                    <ToggleGroup fx:id="searchToggle" />
+                </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="retailerToggle" layoutX="144" layoutY="5" mnemonicParsing="false" onMouseClicked="#retailerOptionClicked" prefHeight="25.0" prefWidth="130.0" text="Retailer" toggleGroup="$searchToggle" />
+            <ToggleButton fx:id="wifiToggle" layoutX="280" layoutY="5" mnemonicParsing="false" onMouseClicked="#wifiOptionClicked" prefHeight="25.0" prefWidth="130.0" text="WiFi" toggleGroup="$searchToggle" />
+        </Pane>
+        <Pane fx:id="wifiOptionsPane" layoutY="78.0" prefHeight="675.0" prefWidth="680.0" visible="false">
+            <ComboBox fx:id="wifiTypeComboBox" layoutX="122.0" layoutY="21.0" prefHeight="25.0" prefWidth="120.0" promptText="Type">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Any" />
+                        <String fx:value="Free" />
+                        <String fx:value="Limited Free" />
+                        <String fx:value="Partner Site" />
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Any" />
+                </value>
+            </ComboBox>
+            <ComboBox fx:id="providerComboBox" layoutX="271.0" layoutY="21.0" prefWidth="120.0" promptText="Provider">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Any" />
+                        <String fx:value="AT&amp;T" />
+                        <String fx:value="Spectrum" />
+                        <String fx:value="NYPL" />
+                        <String fx:value="BPL" />
+                        <String fx:value="QPL" />
+                        <String fx:value="Manhattan Down Alliance" />
+                        <String fx:value="Chelsea" />
+                        <String fx:value="Altice USA" />
+                        <String fx:value="Harlem" />
+                        <String fx:value="Downtown Brooklyn" />
+                        <String fx:value="City Tech" />
+                        <String fx:value="LinkNYC - Citybridge" />
+                        <String fx:value="NYCHA" />
+                        <String fx:value="Transit Wireless" />
+                        <String fx:value="Partner" />
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Any" />
+                </value>
+            </ComboBox>
+            <ComboBox fx:id="boroughComboBox" layoutX="417.0" layoutY="21.0" prefWidth="120.0" promptText="Borough">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Any" />
+                        <String fx:value="Manhattan" />
+                        <String fx:value="The Bronx" />
+                        <String fx:value="Brooklyn" />
+                        <String fx:value="Queens" />
+                        <String fx:value="Staten Island" />
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Any" />
+                </value>
+            </ComboBox>
+            <Label layoutX="122.0" text="WiFi Type" />
+            <Label layoutX="271.0" text="Provider" />
+            <Label layoutX="417.0" text="Borough" />
+            <TableView fx:id="tableWifi" layoutX="20.0" layoutY="59.0" prefHeight="606.0" prefWidth="634.0">
+                <columns>
+                    <TableColumn fx:id="boroughColumn" maxWidth="100.0" prefWidth="95.0" resizable="false" text="Borough" />
+                    <TableColumn fx:id="typeColumn" maxWidth="100.0" prefWidth="95.0" resizable="false" text="Type" />
+                    <TableColumn fx:id="providerColumn" maxWidth="200.0" prefWidth="150.0" resizable="false" text="Provider" />
+                    <TableColumn fx:id="locationColumn" maxWidth="500.0" prefWidth="293.0" resizable="false" text="Location" />
+                </columns>
+            </TableView>
+        </Pane>
+        <Pane fx:id="retailerOptionsPane" layoutY="72.0" prefHeight="681.0" prefWidth="680.0" visible="false">
+            <Label layoutX="29.0" text="Address" />
+            <Label layoutX="223.0" text="Name" />
+            <TextField fx:id="streetNameTextField" layoutX="29.0" layoutY="30.0" promptText="Street" />
+            <TextField fx:id="zipCodeTextField" layoutX="223.0" layoutY="30.0" prefHeight="25.0" prefWidth="159.0" promptText="Company Name" />
+            <TableView fx:id="tableRetailer" layoutX="20.0" layoutY="71.0" prefHeight="584.0" prefWidth="634.0">
+                <columns>
+                    <TableColumn fx:id="companyNameColumn" maxWidth="191.0" minWidth="105.0" prefWidth="191.0" resizable="false" text="Company Name" />
+                    <TableColumn fx:id="addressColumn" maxWidth="271.0" prefWidth="256.0" resizable="false" text="Address" />
+                    <TableColumn fx:id="companyTypeColumn" maxWidth="500.0" prefWidth="185.0" resizable="false" text="Company Type" />
+                </columns>
+            </TableView>
+            <ComboBox fx:id="primaryCB" layoutX="427.0" layoutY="30.0" prefWidth="150.0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Any" />
+                        <String fx:value="Casual Eating &amp; Takeout" />
+                        <String fx:value="Community Resources" />
+                        <String fx:value="Full Service Dining" />
+                        <String fx:value="Nightlife" />
+                        <String fx:value="Personal and Professional Services" />
+                        <String fx:value="Shopping" />
+                        <String fx:value="Visitor Services" />
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Any" />
+                </value>
+            </ComboBox>
+            <Label layoutX="427.0" layoutY="7.0" text="Company Type" />
+        </Pane>
+        <Pane fx:id="routeOptionsPane" layoutY="78.0" prefHeight="675.0" prefWidth="680.0">
+            <TextField fx:id="sStationInput" layoutX="125.0" layoutY="18.0" promptText="Start Station Name" />
+            <TextField fx:id="eStationInput" layoutX="386.0" layoutY="18.0" promptText="End Station Name" />
+            <TableView fx:id="tableRoute" layoutX="20.0" layoutY="58.0" prefHeight="606.0" prefWidth="634.0">
+                <columns>
+                    <TableColumn fx:id="tripDurationCol" maxWidth="100.0" minWidth="100.0" prefWidth="70.0" resizable="false" text="Trip Time" />
+                    <TableColumn fx:id="startStationCol" maxWidth="240.0" prefWidth="190.0" resizable="false" text="Start Station Name" />
+                    <TableColumn fx:id="endStationCol" maxWidth="200.0" prefWidth="190.0" resizable="false" text="End Station Name" />
+                    <TableColumn fx:id="distanceCol" maxWidth="500.0" prefWidth="152" resizable="false" />
+                </columns>
+            </TableView>
+        </Pane>
+        <Pane fx:id="routeDetailPane" prefHeight="800.0" prefWidth="680.0" visible="false">
+            <children>
+                <Button layoutX="614.0" layoutY="743.0" mnemonicParsing="false" onAction="#backButtonPressed" text="Back" />
+                <Label layoutX="193.0" layoutY="39.0" text="Bike Route Information">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <Label layoutX="239.0" layoutY="491.0" text="User Information">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+                <GridPane layoutX="31.0" layoutY="557.0" prefHeight="66.0" prefWidth="618.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="99.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.0" minWidth="10.0" prefWidth="164.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.0" minWidth="10.0" prefWidth="41.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="94.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="223.0" minWidth="10.0" prefWidth="223.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="15.0" prefWidth="165.0" text="ID Number:">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="160.0" text="User Type:" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="157.0" text="Gender:" GridPane.columnIndex="3">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="15.0" prefWidth="168.0" text="Birth year:" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="routeUserGenderCB" prefHeight="25.0" prefWidth="229.0" GridPane.columnIndex="4" >
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Male" />
+                                    <String fx:value="Female" />
+                                    <String fx:value="Unknown" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <TextField fx:id="routeBYearTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="routeUserTypeCB" prefHeight="25.0" prefWidth="172.0" GridPane.columnIndex="1" GridPane.rowIndex="1" >
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Customer" />
+                                    <String fx:value="Subscriber" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <Label fx:id="routeUserIdLabel" prefHeight="15.0" prefWidth="179.0" GridPane.columnIndex="1" />
+                    </children>
+                </GridPane>
+                <Label layoutX="185.0" layoutY="288.0" text="Start Station">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Label>
+                <Label layoutX="413.0" layoutY="288.0" text="End Station">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Label>
+                <GridPane layoutX="31.0" layoutY="154.0" prefHeight="60.0" prefWidth="618.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.0" minWidth="10.0" prefWidth="118.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="166.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="6.0" prefWidth="24.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="155.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="128.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Start time:">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label text="End time:" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label text="Trip duration (sec):" GridPane.columnIndex="3">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="routeStartTimeTF" GridPane.columnIndex="1" />
+                        <TextField fx:id="routeEndTimeTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="routeDurLabel" prefHeight="15.0" prefWidth="130.0" GridPane.columnIndex="4" />
+                        <Label text="Bike ID Number:" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="routeBikeIdTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <GridPane layoutX="31.0" layoutY="308.0" prefHeight="134.0" prefWidth="618.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="143.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="272.0" minWidth="4.0" prefWidth="216.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="21.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="238.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Name:">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label text="ID Number:" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label text="Latitude:" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label text="Longitude:" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="routeStartLatLabel" prefHeight="15.0" prefWidth="231.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="routeStartLonLabel" prefHeight="15.0" prefWidth="231.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="routeEndLatLabel" prefHeight="15.0" prefWidth="231.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label fx:id="routeEndLonLabel" prefHeight="15.0" prefWidth="231.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <TextField fx:id="routeStartNameTF" GridPane.columnIndex="1" />
+                        <TextField fx:id="routeEndNameTF" GridPane.columnIndex="3" />
+                        <TextField fx:id="routeStartIdTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="routeEndIdTF" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Button layoutX="504.0" layoutY="743.0" mnemonicParsing="false" onAction="#editRouteRecord" text="Save" />
+            </children>
+        </Pane>
+        <Pane fx:id="wifiDetailPane" prefHeight="800.0" prefWidth="680.0" visible="false">
+            <GridPane layoutX="42.0" layoutY="117.0" prefHeight="464.0" prefWidth="596.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.0" minWidth="10.0" prefWidth="113.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="10.0" prefWidth="171.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="321.0" minWidth="10.0" prefWidth="61.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="321.0" minWidth="0.0" prefWidth="114.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="321.0" minWidth="10.0" prefWidth="137.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <Label prefHeight="15.0" prefWidth="184.0" text="NTA Name:" GridPane.rowIndex="10">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="161.0" text="Type:" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label alignment="BOTTOM_LEFT" prefHeight="15.0" prefWidth="184.0" text="Provider: " GridPane.rowIndex="2">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="162.0" text="Address:" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="165.0" text="Name:">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="wifiNameTF" GridPane.columnIndex="1" />
+                <Label prefHeight="15.0" prefWidth="106.0" text="City:" GridPane.rowIndex="6">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="103.0" text="Borough:" GridPane.rowIndex="5">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="103.0" text="Latitude:" GridPane.rowIndex="8">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="103.0" text="Longitude:" GridPane.rowIndex="9">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="132.0" text="X coordinate:" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="135.0" text="Y Coordinate:" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="16.0" prefWidth="125.0" text="Location Type:" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="131.0" text="SSID:" GridPane.columnIndex="3">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="131.0" text="Source ID:" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="131.0" text="Object ID:" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="131.0" text="CT2010:" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="131.0" text="BOROCT2010:" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="102.0" text="Postcode:" GridPane.rowIndex="7">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="133.0" text="BIN:" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="131.0" text="BBL:" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="151.0" text="DOITT_ID:" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="15.0" prefWidth="137.0" text="NTA Code: " GridPane.columnIndex="3" GridPane.rowIndex="10">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="wifiPostCodeLabel" prefHeight="15.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <Label fx:id="wifiLatLabel" prefHeight="15.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <Label fx:id="wifiLonLabel" prefHeight="15.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <Label fx:id="wifiNTANLabel" prefHeight="15.0" prefWidth="229.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                <Label fx:id="wifiNTACodeLabel" prefHeight="15.0" prefWidth="185.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                <Label alignment="CENTER" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                <Label fx:id="wifiYCorLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                <Label fx:id="wifiDOITT_IDLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                <Label fx:id="wifiXCorLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                <Label fx:id="wifiBBLLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                <Label fx:id="wifiBINLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                <Label GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                <Label fx:id="wifiBorOctLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                <Label fx:id="wifiCTLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                <Label fx:id="wifiObjectIDLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                <Label fx:id="wifiSourceIDLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                <Label fx:id="wifiSsidLabel" prefHeight="15.0" prefWidth="164.0" GridPane.columnIndex="4" />
+                <ComboBox fx:id="wifiTypeCB" prefHeight="25.0" prefWidth="178.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Partner Site" />
+                            <String fx:value="Free" />
+                            <String fx:value="Limited Free" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label fx:id="wifiBoroughLabel" prefHeight="15.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <ComboBox fx:id="wifiProviderCB" prefHeight="25.0" prefWidth="173.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <ComboBox fx:id="wifiLocTypeCB" prefHeight="25.0" prefWidth="168.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Outdoor Kiosk" />
+                            <String fx:value="Outdoor" />
+                            <String fx:value="Indoor" />
+                            <String fx:value="Outdoor TWC Aerial" />
+                            <String fx:value="Library" />
+                            <String fx:value="Subway Station" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <TextField fx:id="wifiLocTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="wifiCityTF" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            </GridPane>
+            <Button layoutX="578.0" layoutY="728.0" mnemonicParsing="false" onAction="#backButtonPressed" text="Back" />
+            <Button layoutX="82.0" layoutY="728.0" mnemonicParsing="false" onAction="#editWifiRecord" text="Save" />
+            <TextArea fx:id="wifiRemarksTA" layoutX="134.0" layoutY="618.0" prefHeight="80.0" prefWidth="292.0" wrapText="true" />
+            <Label layoutX="48.0" layoutY="651.0" prefHeight="16.0" prefWidth="82.0" text="Remarks:">
+                <font>
+                    <Font name="System Bold" size="13.0" />
+                </font>
+            </Label>
+            <Label layoutX="164.0" layoutY="41.0" text="Wifi Location Information">
+                <font>
+                    <Font size="28.0" />
+                </font>
+            </Label>
+        </Pane>
+        <Button fx:id="confirmButton" layoutX="594.0" layoutY="28.0" mnemonicParsing="false" onAction="#confirmButtonClicked" text="Confirm" />
+        <Button fx:id="moreInfoButton" layoutX="57.0" layoutY="752.0" mnemonicParsing="false" onAction="#moreInfoClicked" text="More info" />
+        <Button fx:id="deleteRecordButton" layoutX="264.0" layoutY="752.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="25.0" prefWidth="120.0" text="Delete Record" />
+        <Button fx:id="moreRecords" layoutX="515.0" layoutY="752.0" mnemonicParsing="false" onAction="#addMoreData" text="More Entries" />
+        <Button fx:id="findRetailersRouteBtn" layoutX="294.0" layoutY="743.0" mnemonicParsing="false" onAction="#findRetailers" text="Find Retailers Along Route" visible="false" />
+        <Button fx:id="findWifiBtn" layoutX="46.0" layoutY="743.0" mnemonicParsing="false" onAction="#findWifiLocations" text="Find Wifi Locations Along Route" visible="false" />
+        </Pane>
+        <Pane prefHeight="800.0" prefWidth="525.0" />
+</HBox>
